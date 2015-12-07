@@ -8,21 +8,6 @@
 	var talkMsg = 'start talking';
 	var patience = 600;
 
-
-// CUSTOM STUFF ANDRIY ADDED
-      // var gridster;
-
-      // $(function() {
-      //     gridtster = $(".gridster > ul").gridster({
-      //         widget_margins: [10, 10],
-      //         widget_base_dimensions: [140, 140],
-      //         min_cols: 6
-      //     }).data('gridster');
-      // });
-// END OF CUSTOM STUFF
-
-
-
 	function capitalize(str) {
 		return str.length ? str[0].toUpperCase() + str.slice(1) : str;
 	}

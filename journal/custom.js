@@ -16,7 +16,7 @@ $(document).ready(function() {
 			cache: false
 	    }
 
-	    // Make AJAX call
+	    // Make the AJAX call
 	    $.ajax(ajax_url, settings);
 	};
 
