@@ -185,7 +185,6 @@
 
       .gridster {
           margin: 0 auto;
-
           opacity: 1;
 
           -webkit-transition: opacity .6s;
@@ -193,6 +192,9 @@
           -o-transition: opacity .6s;
           -ms-transition: opacity .6s;
           transition: opacity .6s;
+
+          height: 42g0px;
+          width:  1500px;
       }
 
       .gridster .gs-w {
