@@ -1,0 +1,240 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <title>426 Project</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	
+  <link href="vendor/speech-input.css" rel="stylesheet">
+  <link href="vendor/widearea.min.css" rel="stylesheet">
+  <link href="vendor/jquery.gridster.css" rel="stylesheet">
+
+
+	<script type="text/javascript" src="vendor/colorpicker.min.js"></script>
+  <script type="text/javascript" src="vendor/jquery.gridster.min.js"></script>
+  <script type="text/javascript" src="vendor/widearea.min.js"></script>
+
+  <style type="text/css">
+    #picker { width: 200px; height: 200px }
+    #slide { width: 30px; height: 200px }
+
+      /* Sticky footer styles
+      -------------------------------------------------- */
+      html,
+      body {
+        height: 100%;
+        /* The html and body elements cannot have any padding or margin. */
+      }
+
+      textarea {
+        height: 100px;
+        width:100%;
+        max-width: 100%;
+        box-sizing:border-box;
+        margin:0;
+        border: 1px solid #ddd;
+        border-radius: 0;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        resize: none;
+      }
+
+      #widearea-container {
+        border: 5px solid #eee;
+        border-radius: 2px;
+        box-shadow: 0px 1px 1px #ddd;
+      }
+
+      /* Wrapper for page content to push down footer */
+      #wrap {
+        min-height: 100%;
+        height: auto !important;
+        height: 100%;
+        /* Negative indent footer by it's height */
+        margin: 0 auto -60px;
+      }
+
+      /* Set the fixed height of the footer here */
+      #push,
+      #footer {
+        height: 60px;
+      }
+      #footer {
+        background-color: #f5f5f5;
+      }
+
+      /* Custom page CSS
+      -------------------------------------------------- */
+      /* Not required for template or sticky footer method. */
+
+      .container {
+        width: auto;
+        max-width: 680px;
+      }
+      .container .credit {
+        margin: 20px 0;
+      }
+      .detail-widearea {
+
+        -webkit-transition: all 0.2s ease-out;
+        -moz-transition: all 0.2s ease-out;
+        -ms-transition: all 0.2s ease-out;
+        -o-transition: all 0.2s ease-out;
+        transition: all 0.2s ease-out;
+      }
+
+
+.gridster * {
+  margin:0;
+  padding:0;
+}
+
+ul {
+  list-style-type: none;
+}
+
+
+/*/
+/* demo
+/*/
+
+
+body {
+    font-size: 14px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: #444;
+    margin: 30px 40px;
+}
+
+.controls {
+    margin-bottom: 10px;
+}
+
+/*/
+/* gridster
+/*/
+
+.gridster ul {
+    background-color: #EFEFEF;
+}
+
+.gridster li {
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    line-height: 100%;
+}
+
+
+.gridster {
+    margin: 0 auto;
+
+    opacity: .8;
+
+    -webkit-transition: opacity .6s;
+    -moz-transition: opacity .6s;
+    -o-transition: opacity .6s;
+    -ms-transition: opacity .6s;
+    transition: opacity .6s;
+}
+
+.gridster .gs-w {
+    background: #DDD;
+    cursor: pointer;
+}
+
+.gridster .player {
+    background: #BBB;
+}
+
+
+.gridster .preview-holder {
+    border: none!important;
+    background: red!important;
+}
+
+
+
+    </style>
+
+  </head>
+  <body>
+
+      <!-- Gridster -->
+ <div class="gridster">
+    <ul>
+      <li id="picker_grid" data-row="0" data-col="1" data-sizex="1" data-sizey="2" data-min-sizex="1" data-min-sizey="2"><div id="picker"></div><div id="slide"></div></li>
+      <li data-row="2" data-col="3" data-sizex="1" data-sizey="1">1</li>
+      <li data-row="2" data-col="4" data-sizex="1" data-sizey="1">2</li>
+      <li data-row="3" data-col="2" data-sizex="1" data-sizey="1">3</li>
+      <li data-row="4" data-col="3" data-sizex="1" data-sizey="1">4</li>
+      <li data-row="3" data-col="3" data-sizex="1" data-sizey="1">5</li>
+      <li id ="text_grid" data-row="1" data-col="2" data-sizex="5" data-sizey="2">      <div id="wrap">
+        <div class="container">
+          <div class="page-header">
+            <h1 style="font-weight: normal;" class="pull-left"><strong>Journal</strong></h1>
+            <div class="clearfix"></div>
+          </div>
+          <p class="lead">Start typing and then click on the top-right icon.</p>
+
+          <div id="widearea-container">
+            <textarea placeholder="Type something..." data-widearea="enable" id="si-input"></textarea>
+              <button id="si-btn">
+            speech input
+            </button>
+          </div>
+          <button id="submit">submit</button>
+        </div>
+        <div id="push"></div>
+      </div></li>
+
+    </ul>
+  </div>
+  <script type="text/javascript" src="vendor/jquery-1.11.3.js"></script>
+
+   <script src="vendor/jquery.gridster.js" type="text/javascript" charset="utf-8"></script>
+
+    <script type="text/javascript">
+      var gridster;
+
+    $(function(){
+        $(".gridster ul").gridster({
+          widget_base_dimensions: [250, 200],
+          widget_margins: [5, 5],
+          helper: 'clone',
+          avoid_overlapped_widgets: true,
+          resize: {
+            enabled: true,
+            max_size: [4, 4],
+            min_size: [1, 1],
+          }
+        }).data('gridster');
+
+        // resize widgets on hover
+        // gridster.$el
+        //   .on('mouseenter', '> li', function() {
+        //       gridster.resize_widget($(this), 3, 3);
+        //   })
+        //   .on('mouseleave', '> li', function() {
+        //       gridster.resize_widget($(this), 1, 1);
+        //   });
+
+      });
+    </script>
+<!-- ................................................................................-->
+
+      <div id="picker"></div>
+      <div id="slide"></div>  
+      <div id="txtHint">THE TEXT WILL BE HERE</div>
+      <script type="text/javascript">wideArea();</script>
+      <script src="vendor/speech-input.js"></script>
+      <section class="demo">
+      </section>
+
+
+
+  </body>
+</html>
