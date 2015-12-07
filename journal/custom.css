@@ -1,74 +1,6 @@
-	#picker { width: 200px; height: 200px }
-    #slide { width: 30px; height: 200px }
 
-      /* Sticky footer styles
-      -------------------------------------------------- */
-      html,
-      body {
-        height: 100%;
-        /* The html and body elements cannot have any padding or margin. */
-      }
-
-      textarea {
-        height: 100px;
-        width:100%;
-        max-width: 100%;
-        box-sizing:border-box;
-        margin:0;
-        border: 1px solid #ddd;
-        border-radius: 0;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-        resize: none;
-      }
-
-      #widearea-container {
-        border: 5px solid #eee;
-        border-radius: 2px;
-        box-shadow: 0px 1px 1px #ddd;
-      }
-
-      /* Wrapper for page content to push down footer */
-      #wrap {
-        min-height: 100%;
-        height: auto !important;
-        height: 100%;
-        /* Negative indent footer by it's height */
-        margin: 0 auto -60px;
-      }
-
-      /* Set the fixed height of the footer here */
-      #push,
-      #footer {
-        height: 60px;
-      }
-      #footer {
-        background-color: #f5f5f5;
-      }
-
-      /* Custom page CSS
-      -------------------------------------------------- */
-      /* Not required for template or sticky footer method. */
-
-      .container {
-        width: auto;
-        max-width: 680px;
-      }
-      .container .credit {
-        margin: 20px 0;
-      }
-      .detail-widearea {
-        margin-top: 50px;
-        -webkit-transition: all 0.2s ease-out;
-        -moz-transition: all 0.2s ease-out;
-        -ms-transition: all 0.2s ease-out;
-        -o-transition: all 0.2s ease-out;
-        transition: all 0.2s ease-out;
-      }
       #picker { width: 200px; height: 200px }
-    #slide { width: 30px; height: 200px }
-
+      #slide { width: 30px; height: 200px }
       /* Sticky footer styles
       -------------------------------------------------- */
       html,
@@ -91,10 +23,66 @@
         resize: none;
       }
 
+      .page-header {
+        text-align: center;
+      }
+
       #widearea-container {
         border: 5px solid #eee;
         border-radius: 2px;
         box-shadow: 0px 1px 1px #ddd;
+      }
+
+      #si-btn {
+        position:relative;
+        text-align:center;
+      }
+
+
+      #si-btn::before{
+        display: block;
+        content: #mic_gif;
+      }
+
+      #si-btn span {
+        display:inline-block;
+        padding:2px 6px;
+        cursor:default;
+      }
+
+      #si-btn span::after{
+        display:inline-block;
+        padding:4px;
+      }
+
+      #si-btn span::before {
+        position:relative;
+        bottom:0;
+        left:0;
+        width:100%;
+        content:attr(data-title);
+
+        opacity:0;
+
+        /* Animate the transitions */
+        -webkit-transition:opacity 0.4s;
+        transition:opacity 0.4s;
+        }
+
+      #si-btn span:hover::before{
+        opacity:1;
+      }
+
+
+
+
+
+
+
+
+      #submit {
+        height: 6px;
+        width: 99%;
       }
 
       /* Wrapper for page content to push down footer */
@@ -134,6 +122,10 @@
         -o-transition: all 0.2s ease-out;
         transition: all 0.2s ease-out;
       }
+
+      /*/
+      /*   Gridster
+      /*/
 
       .gridster * {
         margin:0;
@@ -143,13 +135,6 @@
       ul {
         list-style-type: none;
       }
-
-
-      /*/
-      /* demo
-      /*/
-
-
       body {
           font-size: 14px;
           font-family: 'Helvetica Neue', Arial, sans-serif;
@@ -174,7 +159,26 @@
           font-weight: bold;
           text-align: center;
           line-height: 100%;
+          padding: 5px;
+          align-items: center;
       }
+
+      .gridster li#text_grid {
+          font-size: 1em;
+          font-weight: bold;
+          text-align: center;
+          line-height: 100%;
+          align-items: center;
+      }
+      .gridster li#speech_grid {
+          font-size: 1em;
+          font-weight: bold;
+          text-align: center;
+          line-height: 100%;
+          padding: 50px;
+          align-items: center;
+      }
+
 
 
       .gridster {
@@ -205,3 +209,6 @@
           border: none!important;
           background: red!important;
       }
+
+
+
