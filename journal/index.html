@@ -20,30 +20,35 @@
       <!-- Gridster -->
   <div class="gridster">
     <ul>
-      <li id="picker_grid" data-row="0" data-col="1" data-sizex="1" data-sizey="2" data-min-sizex="1" data-min-sizey="2"><div id="picker"></div><div id="slide"></div></li>
-      <li data-row="2" data-col="3" data-sizex="1" data-sizey="1">1</li>
-      <li data-row="2" data-col="4" data-sizex="1" data-sizey="1">2</li>
+      <li id="picker_grid" data-row="1" data-col="3" data-sizex="1" data-sizey="2" data-min-sizex="1" data-min-sizey="2"><div id="picker"></div><div id="slide"></div></li>
+      <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">1</li>
+      <li data-row="2" data-col="1" data-sizex="1" data-sizey="1">1</li>
+
+<!--       <li data-row="2" data-col="4" data-sizex="1" data-sizey="1">2</li>
       <li data-row="3" data-col="2" data-sizex="1" data-sizey="1">3</li>
       <li data-row="4" data-col="3" data-sizex="1" data-sizey="1">4</li>
-      <li data-row="3" data-col="3" data-sizex="1" data-sizey="1">5</li>
-      <li id ="text_grid" data-row="1" data-col="2" data-sizex="5" data-sizey="2">      <div id="wrap">
-        <div class="container">
-          <div class="page-header">
-            <h1 style="font-weight: normal;" class="pull-left"><strong>Journal</strong></h1>
-            <div class="clearfix"></div>
+      <li data-row="3" data-col="3" data-sizex="1" data-sizey="1">5</li> -->
+      <li id ="text_grid" data-row="1" data-col="2" data-sizex="3" data-sizey="2">
+        <div id="wrap">
+          <div class="container">
+            <div class="page-header">
+              <h1 style="font-weight: normal;" class="pull-left"><strong>Journal</strong></h1>
+              <div class="clearfix"></div>
+            </div>
+            <p class="lead">Start typing and then click on the top-right icon.</p>
+            <form method="POST" action="">
+              <div id="widearea-container">
+                  <textarea placeholder="Type something..." data-widearea="enable" id="journal-input" name="journal-input"></textarea>
+                    <button id="si-btn">
+                      speech input
+                    </button>
+              </div>
+              <input type="submit" id="submit" value="send" name="submit">
+            </form>
           </div>
-          <p class="lead">Start typing and then click on the top-right icon.</p>
-
-          <div id="widearea-container">
-            <textarea placeholder="Type something..." data-widearea="enable" id="si-input"></textarea>
-              <button id="si-btn">
-            speech input
-            </button>
-          </div>
-          <button id="submit">submit</button>
         </div>
-        <div id="push"></div>
-      </div></li>
+     </li>
+
 
     </ul>
   </div>
@@ -56,7 +61,7 @@
 
     $(function(){
         $(".gridster ul").gridster({
-          widget_base_dimensions: [250, 200],
+          widget_base_dimensions: [230, 200],
           widget_margins: [5, 5],
           helper: 'clone',
           avoid_overlapped_widgets: true,
@@ -79,32 +84,6 @@
       });
     </script>
 
-      <div id="picker"></div>
-      <div id="slide"></div>  
-      <div id="txtHint">THE TEXT WILL BE HERE</div>
-      <script type="text/javascript">wideArea();</script>
-      <script src="vendor/speech-input.js"></script>
-      <section class="demo">
-      </section>
-
-    <div id="wrap">
-      <div class="container">
-        <div class="page-header">
-          <h1 style="font-weight: normal;" class="pull-left"><strong>Journal</strong></h1>
-          <div class="clearfix"></div>
-        </div>
-        <p class="lead">Start typing and then click on the top-right icon.</p>
-        <form method="POST" action="">
-          <div id="widearea-container">
-  	          <textarea placeholder="Type something..." data-widearea="enable" id="journal-input" name="journal-input"></textarea>
-  	            <button id="si-btn">
-  				        speech input
-  				      </button>
-          </div>
-          <input type="submit" id="submit" value="send" name="submit">
-        </form>
-      </div>
-    </div>
     <div id="picker"></div>
   	<div id="slide"></div>
     <div id="returntext"></div>	
@@ -112,6 +91,7 @@
       wideArea();
      </script>
     <script src="vendor/speech-input.js"></script>
+
 	<section class="demo">
   </section>
   </body>
