@@ -5,8 +5,7 @@
   <meta charset="utf-8">
   <title>426 Project</title>
 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">	
   <link href="vendor/speech-input.css" rel="stylesheet">
   <link href="vendor/widearea.min.css" rel="stylesheet">
   <link href="vendor/jquery.gridster.css" rel="stylesheet">
@@ -15,7 +14,6 @@
 	<script type="text/javascript" src="vendor/colorpicker.min.js"></script>
   <script type="text/javascript" src="vendor/jquery.gridster.min.js"></script>
   <script type="text/javascript" src="vendor/widearea.min.js"></script>
-
   <style type="text/css">
     #picker { width: 200px; height: 200px }
     #slide { width: 30px; height: 200px }
@@ -78,7 +76,7 @@
         margin: 20px 0;
       }
       .detail-widearea {
-
+        margin-top: 50px;
         -webkit-transition: all 0.2s ease-out;
         -moz-transition: all 0.2s ease-out;
         -ms-transition: all 0.2s ease-out;
@@ -86,83 +84,78 @@
         transition: all 0.2s ease-out;
       }
 
+      .gridster * {
+        margin:0;
+        padding:0;
+      }
 
-.gridster * {
-  margin:0;
-  padding:0;
-}
-
-ul {
-  list-style-type: none;
-}
-
-
-/*/
-/* demo
-/*/
+      ul {
+        list-style-type: none;
+      }
 
 
-body {
-    font-size: 14px;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    color: #444;
-    margin: 30px 40px;
-}
-
-.controls {
-    margin-bottom: 10px;
-}
-
-/*/
-/* gridster
-/*/
-
-.gridster ul {
-    background-color: #EFEFEF;
-}
-
-.gridster li {
-    font-size: 1em;
-    font-weight: bold;
-    text-align: center;
-    line-height: 100%;
-}
+      /*/
+      /* demo
+      /*/
 
 
-.gridster {
-    margin: 0 auto;
+      body {
+          font-size: 14px;
+          font-family: 'Helvetica Neue', Arial, sans-serif;
+          color: #444;
+          margin: 30px 40px;
+      }
 
-    opacity: .8;
+      .controls {
+          margin-bottom: 10px;
+      }
 
-    -webkit-transition: opacity .6s;
-    -moz-transition: opacity .6s;
-    -o-transition: opacity .6s;
-    -ms-transition: opacity .6s;
-    transition: opacity .6s;
-}
+      /*/
+      /* gridster
+      /*/
 
-.gridster .gs-w {
-    background: #DDD;
-    cursor: pointer;
-}
+      .gridster ul {
+          background-color: #EFEFEF;
+      }
 
-.gridster .player {
-    background: #BBB;
-}
-
-
-.gridster .preview-holder {
-    border: none!important;
-    background: red!important;
-}
-
+      .gridster li {
+          font-size: 1em;
+          font-weight: bold;
+          text-align: center;
+          line-height: 100%;
+      }
 
 
+      .gridster {
+          margin: 0 auto;
+
+          opacity: 1;
+
+          -webkit-transition: opacity .6s;
+          -moz-transition: opacity .6s;
+          -o-transition: opacity .6s;
+          -ms-transition: opacity .6s;
+          transition: opacity .6s;
+      }
+
+      .gridster .gs-w {
+          background: #DDD;
+          cursor: pointer;
+      }
+
+      .gridster .player {
+          background: #BBB;
+      }
+
+
+      .gridster .preview-holder {
+          border: none!important;
+          background: red!important;
+      }
     </style>
 
   </head>
   <body>
-
       <!-- Gridster -->
  <div class="gridster">
     <ul>
@@ -224,7 +217,6 @@ body {
 
       });
     </script>
-<!-- ................................................................................-->
 
       <div id="picker"></div>
       <div id="slide"></div>  
@@ -234,7 +226,35 @@ body {
       <section class="demo">
       </section>
 
+    <div id="wrap">
+      <div class="container">
+        <div class="page-header">
+          <h1 style="font-weight: normal;" class="pull-left"><strong>Journal</strong></h1>
+          <div class="clearfix"></div>
+        </div>
+        <p class="lead">Start typing and then click on the top-right icon.</p>
 
-
+        <div id="widearea-container">
+	          <textarea placeholder="Type something..." data-widearea="enable" id="si-input"></textarea>
+	            <button id="si-btn">
+				    speech input
+				</button>
+        </div>
+   		<button id="submit">
+			submit
+		</button>
+      </div>
+      <div id="push">
+      </div>
+    </div>
+    <div id="picker"></div>
+  	<div id="slide"></div>	
+    <div id="txtHint">THE TEXT WILL BE HERE</div>
+    <script type="text/javascript">
+      wideArea();
+     </script>
+    <script src="vendor/speech-input.js"></script>
+	<section class="demo">
+  </section>
   </body>
 </html>

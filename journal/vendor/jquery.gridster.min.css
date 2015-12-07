@@ -38,7 +38,7 @@ h3 {
     width: 1000px;
     margin: 0 auto;
 
-    opacity: .8;
+    opacity: 1;
 
     -webkit-transition: opacity .6s;
     -moz-transition: opacity .6s;
