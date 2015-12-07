@@ -11,6 +11,9 @@
 
 	<script type="text/javascript" src="vendor/colorpicker.min.js"></script>
   <script type="text/javascript" src="vendor/widearea.min.js"></script>
+  <script type="text/javascript" src="vendor/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src="custom.js"></script>
+
   <style type="text/css">
     #picker { width: 200px; height: 200px }
     #slide { width: 30px; height: 200px }
@@ -92,22 +95,27 @@
           <div class="clearfix"></div>
         </div>
         <p class="lead">Start typing and then click on the top-right icon.</p>
+        <form method="POST" action="">
+          <div id="widearea-container">
+  	          <textarea placeholder="Type something..." data-widearea="enable" id="journal-input" name="journal-input"></textarea>
+  	            <button id="si-btn">
+  				        speech input
+  				      </button>
+          </div>
+          <input type="submit" id="submit" value="send" name="submit">
+        </form>
 
-        <div id="widearea-container">
-	          <textarea placeholder="Type something..." data-widearea="enable" id="si-input"></textarea>
-	            <button id="si-btn">
-				    speech input
-				</button>
-        </div>
-   		<button id="submit">
+
+<!--    		<button id="submit" onclick="submit_handler()">
 			submit
-		</button>
+		</button> -->
       </div>
-      <div id="push">
-      </div>
+  <!--     <div id="push">
+      </div> -->
     </div>
     <div id="picker"></div>
-  	<div id="slide"></div>	
+  	<div id="slide"></div>
+    <div id="returntext"></div>	
     <div id="txtHint">THE TEXT WILL BE HERE</div>
     <script type="text/javascript">
       wideArea();
