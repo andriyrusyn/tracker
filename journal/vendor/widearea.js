@@ -39,6 +39,7 @@
       closeIconLabel: 'Close WideArea',
       changeThemeIconLabel: 'Toggle Color Scheme',
       fullScreenIconLabel: 'WideArea Mode',
+      speechInputIconLabel: 'Speech Input Mode',
       autoSaveKeyPrefix: 'WDATA-'
     };
 
@@ -117,6 +118,10 @@
       _enableFullScreen.call(self, this);
     };
 
+    speechInputIconClickHandler = function() {        // CODE ERIC INSERTED
+      _enableSpeechInput.call(self, this);         
+    };
+
     //to hold all textareas in the page
     this._textareas = [];
 
@@ -126,19 +131,33 @@
       //create widearea wrapper element
       var wideAreaWrapper  = document.createElement('div'),
           wideAreaIcons    = document.createElement('div'),
-          fullscreenIcon   = document.createElement('a');
-
+          fullscreenIcon   = document.createElement('a'),
+          speechInputIcon = document.createElement('button');
+      
       wideAreaWrapper.className = 'widearea-wrapper';
       wideAreaIcons.className   = 'widearea-icons';
       fullscreenIcon.className  = 'widearea-icon fullscreen';
-      fullscreenIcon.title = this._options.fullScreenIconLabel;
+      fullscreenIcon.title = this._options.fullScreenIconLabel;   
+      speechInputIcon.className = 'widearea-icon speechinput';       // CODE ERIC INSERTED
+      speechInputIcon.title = this._options.speechInputIconLabel;   // CODE ERIC INSERTED
+      speechInputIcon.id = 'si-btn';
+      speechInputIcon.style.height = '52px';
+      speechInputIcon.style.width = '52px';
+      speechInputIcon.style.top = '-10px';
+      speechInputIcon.style.right = '18px';
+      speechInputIcon.style.transform = 'scale(.5,.5)';
+
+
 
       //hack!
       fullscreenIcon.href = 'javascript:void(0);';
       fullscreenIcon.draggable = false;
+      speechInputIcon.href = 'javascript:void(0);';   // CODE ERIC INSERTED
+      speechInputIcon.draggable = false;             // CODE ERIC INSERTED
 
       //bind to click event
       fullscreenIcon.onclick = fullscreenIconClickHandler;
+      speechInputIcon.onclick = speechInputIconClickHandler;        // CODE ERIC INSERTED
 
       //add widearea class to textarea
       currentTextArea.className += (currentTextArea.className + " widearea").replace(/^\s+|\s+$/g, "");
@@ -170,7 +189,9 @@
 
       //append all prepared div(s)
       wideAreaIcons.appendChild(fullscreenIcon);
+      wideAreaIcons.appendChild(speechInputIcon); // CODE ERIC INSERTED
       wideAreaWrapper.appendChild(wideAreaIcons);
+
 
       //and append it to the page
       document.body.appendChild(wideAreaWrapper);
@@ -319,6 +340,8 @@
     changeThemeIcon.href = 'javascript:void(0);';
     changeThemeIcon.className = 'widearea-icon changeTheme';
     changeThemeIcon.title = this._options.changeThemeIconLabel;
+    changeThemeIcon.style.position = 'relative';   // CODE ERIC INSERTED
+    changeThemeIcon.style.left = '30px';          // CODE ERIC INSERTED
     changeThemeIcon.onclick = function() {
       _toggleColorScheme.call(self);
     };
@@ -328,6 +351,11 @@
 
     controlPanel.appendChild(closeIcon);
     controlPanel.appendChild(changeThemeIcon);
+    var si_icon = document.getElementById('si-btn');
+    si_icon.style.left = '10px';
+    controlPanel.appendChild(si_icon);      // CODE ERIC INSERTED
+
+
 
     //create overlay layer
     var overlayLayer = document.createElement('div');
@@ -336,6 +364,7 @@
     //add controls to overlay layer
     overlayLayer.appendChild(currentTextArea);
     overlayLayer.appendChild(controlPanel);
+
 
     //finally add it to the body
     document.body.appendChild(overlayLayer);
@@ -377,7 +406,7 @@
     }
   }
 
-  /**
+/**
    * Change/Toggle color scheme of WideArea
    *
    * @api private
@@ -477,8 +506,99 @@
       _clearStorage.call(this, value);
       return this;
     }
-  };
+  }
+  
+  function _enableSpeechInput(link) {
+     (function() {
+        'use strict';
+
+        if (! ('webkitSpeechRecognition' in window) ) return;
+
+        var talkMsg = 'start talking';
+        var patience = 600;
+
+        function capitalize(str) {
+          return str.length ? str[0].toUpperCase() + str.slice(1) : str;
+        }
+        var inputEl = document.getElementById('journal-input');
+        var micBtn = document.getElementById('si-btn');
+      
+          // size and position them
+          var inputHeight = inputEl.offsetHeight;
+          var inputRightBorder = parseInt(getComputedStyle(inputEl).borderRightWidth, 10);
+          var buttonSize = 0.8 * inputHeight;
+          micBtn.style.top = 0.1 * inputHeight + 'px';
+          micBtn.style.height = micBtn.style.width = buttonSize + 'px';
+          inputEl.style.paddingRight = buttonSize - inputRightBorder + 'px';
+
+          // setup recognition
+          var finalTranscript = '';
+          var recognizing = false;
+          var timeout;
+          var oldPlaceholder = null;
+          var recognition = new webkitSpeechRecognition();
+          var interim_transcript = '';
+          recognition.continuous = true;
+          recognition.interimResults = true;
+
+          function restartTimer() {
+            timeout = setTimeout(function() {
+              recognition.stop();
+            }, patience * 100000);
+          }
+
+          recognition.onstart = function() {
+            oldPlaceholder = inputEl.placeholder;
+            inputEl.placeholder = talkMsg;
+            recognizing = true;
+            micBtn.classList.add('listening');
+            restartTimer();
+          };
+
+          recognition.onend = function() {
+            recognizing = false;
+            //clearTimeout(timeeout);
+            interim_transcript += finalTranscript;
+            micBtn.classList.remove('listening');
+            inputEl.value = finalTranscript;
+            recognition.start();
+
+            //if (oldPlaceholder !== null) inputEl.placeholder = interim_transcript;
+            //if (oldPlaceholder !== null) inputEl.placeholder = oldPlaceholder;
+          };
+
+          recognition.onresult = function(event) {
+            var interim_transcript = finalTranscript;
+            for (var i = event.resultIndex; i < event.results.length; ++i) {
+              if (event.results[i].isFinal) {
+                finalTranscript += event.results[i][0].transcript;
+                inputEl.value = finalTranscript;
+              }
+              else{
+                interim_transcript += event.results[i][0].transcript;
+                inputEl.value = finalTranscript + interim_transcript;
+              }
+            }
+
+            finalTranscript = capitalize(finalTranscript);
+            inputEl.value = interim_transcript;
+            restartTimer();
+
+          };
+
+          micBtn.addEventListener('click', function(event) {
+            event.preventDefault();
+            if (recognizing) {
+              recognition.stop();
+              return;
+            }
+            //inputEl.value = finalTranscript = '';
+            recognition.start();
+          }, false);
+         });
+  }
 
   exports.wideArea = wideArea;
   return wideArea;
+  
 }));

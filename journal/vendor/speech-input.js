@@ -13,16 +13,17 @@
 	}
 
 		// find elements
+		//var inputEl = $('#journal-input')[0];
 		var inputEl = document.getElementById('journal-input');
 		var micBtn = document.getElementById('si-btn');
 
 		// size and position them
 		var inputHeight = inputEl.offsetHeight;
 		var inputRightBorder = parseInt(getComputedStyle(inputEl).borderRightWidth, 10);
-		var buttonSize = 0.8 * inputHeight;
-		micBtn.style.top = 0.1 * inputHeight + 'px';
-		micBtn.style.height = micBtn.style.width = buttonSize + 'px';
-		inputEl.style.paddingRight = buttonSize - inputRightBorder + 'px';
+		// var buttonSize = 0.8 * inputHeight;
+		// micBtn.style.top = 0.1 * inputHeight + 'px';
+		// micBtn.style.height = micBtn.style.width = buttonSize + 'px';
+		//inputEl.style.paddingRight = buttonSize - inputRightBorder + 'px';
 
 		// setup recognition
 		var finalTranscript = '';
