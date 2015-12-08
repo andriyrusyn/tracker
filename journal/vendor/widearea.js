@@ -143,7 +143,8 @@
       speechInputIcon.id = 'si-btn';
       speechInputIcon.style.height = '50px';
       speechInputIcon.style.width = '50px';
-      speechInputIcon.style.right = '30px';
+      speechInputIcon.style.right = '20px';
+      speechInputIcon.style.transform = 'scale(.5,.5)';
 
 
 
