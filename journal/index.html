@@ -2,97 +2,100 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  <meta charset="utf-8">
-  <title>426 Project</title>
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-	<link href="vendor/speech-input.css" rel="stylesheet">
-  <link href="vendor/widearea.min.css" rel="stylesheet">
-  <link href="vendor/jquery.gridster.css" rel="stylesheet">
-  <link href="custom.css" rel="stylesheet"></style>
+    <meta charset="utf-8">
+    <title>426 Project</title>
 
-	<script type="text/javascript" src="vendor/colorpicker.min.js"></script>
-  <script type="text/javascript" src="vendor/jquery-2.1.4.min.js"></script>
-  <script type="text/javascript" src="vendor/widearea.min.js"></script>
-  <script type="text/javascript" src="custom.js"></script>
+  	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  	<link href="vendor/speech-input.css" rel="stylesheet">
+    <link href="vendor/widearea.min.css" rel="stylesheet">
+    <link href="vendor/jquery.gridster.css" rel="stylesheet">
+    <link href="custom.css" rel="stylesheet"></style>
+
+  	<script type="text/javascript" src="vendor/colorpicker.min.js"></script>
+    <script type="text/javascript" src="vendor/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="vendor/widearea.min.js"></script>
+    <script type="text/javascript" src="custom.js"></script>
   </head>
 
   <body>
       <!-- Gridster -->
-  <div class="gridster">
-    <ul>
-      <li id="picker_grid" data-row="1" data-col="3" data-sizex="1" data-sizey="2" data-min-sizex="1" data-min-sizey="2"><div id="picker"></div><div id="slide"></div></li>
-      <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">1</li>
-      <li data-row="2" data-col="1" data-sizex="1" data-sizey="1">1</li>
+    <div class="gridster">
+      <ul>
+<!--         <li id="picker_grid" data-row="1" data-col="3" data-sizex="1" data-sizey="2" data-min-sizex="1" data-min-sizey="2"><div id="picker"></div><div id="slide"></div></li> -->
+        <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">1</li>
+        <li data-row="2" data-col="1" data-sizex="1" data-sizey="1">1</li>
 
-<!--       <li data-row="2" data-col="4" data-sizex="1" data-sizey="1">2</li>
-      <li data-row="3" data-col="2" data-sizex="1" data-sizey="1">3</li>
-      <li data-row="4" data-col="3" data-sizex="1" data-sizey="1">4</li>
-      <li data-row="3" data-col="3" data-sizex="1" data-sizey="1">5</li> -->
-      <li id ="text_grid" data-row="1" data-col="2" data-sizex="2" data-sizey="2">
-        <div id="wrap">
-          <div class="container">
-            <div class="page-header">
-              <h1 style="font-weight: normal;" class="pull-left"><strong>Journal</strong></h1>
-              <div class="clearfix"></div>
-            </div>
-            <p class="lead">Start typing and then click on the top-right icon.</p>
-            <form method="POST" action="">
-              <div id="widearea-container">
-                  <textarea placeholder="Type something..." data-widearea="enable" id="journal-input" name="journal-input"></textarea>
-                    <button id="si-btn">
-                      speech input
-                    </button>
+  <!--  <li data-row="2" data-col="4" data-sizex="1" data-sizey="1">2</li>
+        <li data-row="3" data-col="2" data-sizex="1" data-sizey="1">3</li>
+        <li data-row="4" data-col="3" data-sizex="1" data-sizey="1">4</li>
+        <li data-row="3" data-col="3" data-sizex="1" data-sizey="1">5</li> -->
+        <li id ="text_grid" data-row="1" data-col="2" data-sizex="2" data-sizey="2">
+          <div id="wrap">
+            <div class="container">
+              <div class="page-header">
+                <h1 style="font-weight: normal;" class="pull-left"><strong>Journal</strong></h1>
+                <div class="clearfix"></div>
               </div>
-              <input type="submit" id="submit" value="send" name="submit">
-            </form>
+              <p class="lead">Start typing and then click on the top-right icon.</p>
+              <form method="POST" action="">
+                <div id="widearea-container">
+                    <textarea placeholder="Type something..." data-widearea="enable" id="journal-input" name="journal-input"></textarea>
+                      <button id="si-btn">
+                        speech input
+                      </button>
+                </div>
+                <input type="submit" id="submit" value="send" name="submit">
+              </form>
+            </div>
           </div>
-        </div>
-      </li>
-      <li id="picker_grid" data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-        <div id="color-picker" class="cp-default">
-            <div class="picker-wrapper">
-                <div id="picker" class="picker"></div>
-                <div id="picker-indicator" class="picker-indicator"></div>
-            </div>
-            <div class="slide-wrapper">
-                <div id="slide" class="slide"></div>
-                <div id="slide-indicator" class="slide-indicator"></div>
-            </div>
-        </div>
-      </li>
-    </ul>
-  </div>
-  <div id="returntext"></div> 
-  <script type="text/javascript" src="vendor/jquery-1.11.3.js"></script>
-  <script src="vendor/jquery.gridster.js" type="text/javascript" charset="utf-8"></script>
-  <script type="text/javascript">wideArea();</script>
-  <script src="vendor/speech-input.js"></script>
-  <script type="text/javascript">
-    var gridster;
-    $(function(){
-        $(".gridster ul").gridster({
-          widget_base_dimensions: [250, 200],
-          autogenerate_stylesheet: true,
-          //widget_margins: [5, 5],
-          helper: 'clone',
-          avoid_overlapped_widgets: true//,
-          // resize: {
-          //   enabled: true,
-          //   max_size: [4, 4],
-          //   min_size: [1, 1],
-          // }
-        }).data('gridster');
+        </li>
+        <li id="picker_grid" data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+          <div id="color-picker" class="cp-default">
+              <div class="picker-wrapper">
+                  <div id="picker" class="picker"></div>
+                  <div id="picker-indicator" class="picker-indicator"></div>
+              </div>
+              <div class="slide-wrapper">
+                  <div id="slide" class="slide"></div>
+                  <div id="slide-indicator" class="slide-indicator"></div>
+              </div>
+          </div>
+        </li>
+      </ul>
+    </div>
 
-          // resize widgets on hover
-          // gridster.$el
-          //   .on('mouseenter', '> li', function() {
-          //       gridster.resize_widget($(this), 3, 3);
-          //   })
-          //   .on('mouseleave', '> li', function() {
-          //       gridster.resize_widget($(this), 1, 1);
-          //   });
+    <div id="returntext"></div> 
 
-      });
+    <script type="text/javascript" src="vendor/jquery-1.11.3.js"></script>
+    <script src="vendor/jquery.gridster.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">wideArea();</script>
+    <script src="vendor/speech-input.js"></script>
+    <script type="text/javascript">
+      var gridster;
+      $(function(){
+          $(".gridster ul").gridster({
+            widget_base_dimensions: [250, 200],
+            autogenerate_stylesheet: true,
+            //widget_margins: [5, 5],
+            helper: 'clone',
+            avoid_overlapped_widgets: true//,
+            // resize: {
+            //   enabled: true,
+            //   max_size: [4, 4],
+            //   min_size: [1, 1],
+            // }
+          }).data('gridster');
+
+            // resize widgets on hover
+            // gridster.$el
+            //   .on('mouseenter', '> li', function() {
+            //       gridster.resize_widget($(this), 3, 3);
+            //   })
+            //   .on('mouseleave', '> li', function() {
+            //       gridster.resize_widget($(this), 1, 1);
+            //   });
+
+        });
     </script>
   </body>
 </html>
