@@ -31,11 +31,27 @@ $(document).ready(function() {
 	    $('#returntext').html(jqXHR.responseText);
 	};
 
-	ColorPicker(
-	    document.getElementById('slide'),
-	    document.getElementById('picker'),
-	    function(hex, hsv, rgb) {
-	      document.body.style.backgroundColor = hex;
-		}
-	);
+	// ColorPicker(
+	//     document.getElementById('slide'),
+	//     document.getElementById('picker'),
+	//     function(hex, hsv, rgb) {
+	//       document.body.style.backgroundColor = hex;
+	// 	}
+	// );
+
+	cp = ColorPicker(document.getElementById('slide'), document.getElementById('picker'), 
+                function(hex, hsv, rgb, mousePicker, mouseSlide) { 
+                  	currentColor = hex;
+                    ColorPicker.positionIndicators(
+                        document.getElementById('slide-indicator'),
+                        document.getElementById('picker-indicator'),
+                        mouseSlide, mousePicker
+                    );
+                    document.body.style.backgroundColor = hex;
+                    document.getElementById('hex').innerHTML = hex;
+                    document.getElementById('rgb').innerHTML = 'rgb(' + rgb.r.toFixed() + ',' + rgb.g.toFixed() + ',' + rgb.b.toFixed() + ')';
+                    document.getElementById('hsv').innerHTML = 'hsv(' + hsv.h.toFixed() + ',' + hsv.s.toFixed(2) + ',' + hsv.v.toFixed(2) + ')';
+            });
+            cp.setHex('#D4EDFB');
+            
 });

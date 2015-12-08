@@ -1,6 +1,15 @@
 
-      #picker { width: 200px; height: 200px }
-      #slide { width: 30px; height: 200px }
+	    #picker { 
+        width: 200px; 
+        height: 200px;
+        position: absolute;
+        left:40px;
+      }
+      #slide {
+        width: 30px;
+        height: 200px;
+        position: absolute;
+      }
       /* Sticky footer styles
       -------------------------------------------------- */
       html,
@@ -24,65 +33,21 @@
       }
 
       .page-header {
-        text-align: center;
+        align-content: center;
       }
-
+      .container {
+        width: auto;
+        height: auto;
+        max-width: 800px;
+      }
+      .container .credit {
+        margin: 20px 0;
+      }
       #widearea-container {
         border: 5px solid #eee;
         border-radius: 2px;
-        box-shadow: 0px 1px 1px #ddd;
-      }
-
-      #si-btn {
-        position:relative;
-        text-align:center;
-      }
-
-
-      #si-btn::before{
-        display: block;
-        content: #mic_gif;
-      }
-
-      #si-btn span {
-        display:inline-block;
-        padding:2px 6px;
-        cursor:default;
-      }
-
-      #si-btn span::after{
-        display:inline-block;
-        padding:4px;
-      }
-
-      #si-btn span::before {
-        position:relative;
-        bottom:0;
-        left:0;
+        box-shadow: 0px 3px 1px #ddd;
         width:100%;
-        content:attr(data-title);
-
-        opacity:0;
-
-        /* Animate the transitions */
-        -webkit-transition:opacity 0.4s;
-        transition:opacity 0.4s;
-        }
-
-      #si-btn span:hover::before{
-        opacity:1;
-      }
-
-
-
-
-
-
-
-
-      #submit {
-        height: 6px;
-        width: 99%;
       }
 
       /* Wrapper for page content to push down footer */
@@ -94,6 +59,22 @@
         margin: 0 auto -60px;
       }
 
+      #submit {
+        height: 20px;
+        width: 99%;
+        padding:0px;
+        background-color: #66A9FF;
+        border:1px solid #666;
+        color: #000;
+      }
+
+      #si-btn {
+        border: 1px solid #666;
+        color: 000;
+        background: #66A9FF url('../img/mic.gif');
+        position: relative;
+
+      }
       /* Set the fixed height of the footer here */
       #push,
       #footer {
@@ -103,17 +84,6 @@
         background-color: #f5f5f5;
       }
 
-      /* Custom page CSS
-      -------------------------------------------------- */
-      /* Not required for template or sticky footer method. */
-
-      .container {
-        width: auto;
-        max-width: 680px;
-      }
-      .container .credit {
-        margin: 20px 0;
-      }
       .detail-widearea {
         margin-top: 50px;
         -webkit-transition: all 0.2s ease-out;
@@ -159,6 +129,7 @@
           font-weight: bold;
           text-align: center;
           line-height: 100%;
+          border: 3px solid #ccc;
           padding: 5px;
           align-items: center;
       }
@@ -169,22 +140,11 @@
           text-align: center;
           line-height: 100%;
           align-items: center;
+          padding:0px;
       }
-      .gridster li#speech_grid {
-          font-size: 1em;
-          font-weight: bold;
-          text-align: center;
-          line-height: 100%;
-          padding: 50px;
-          align-items: center;
-      }
-
-
-
       .gridster {
           margin: 0 auto;
           opacity: 1;
-
           -webkit-transition: opacity .6s;
           -moz-transition: opacity .6s;
           -o-transition: opacity .6s;
@@ -203,12 +163,9 @@
       .gridster .player {
           background: #BBB;
       }
-
-
       .gridster .preview-holder {
           border: none!important;
           background: red!important;
       }
-
 
 
