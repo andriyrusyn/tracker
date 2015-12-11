@@ -146,7 +146,8 @@ function setBackground (images) {
         textProperty = 'textContent' in document ? 'textContent' : 'innerText';
 
     // sets the background-image of the 'body' element:
-    document.body.style.backgroundImage = 'url(' + images[n].src + ')';
+    document.body.style.background = 'url(' + images[n].src + ') no-repeat center center fixed';
+    document.body.style.backgroundSize = 'cover';
 
     // sets the text of the relevant subtitle element:
     // document.getElementById('subtitleElementID')[textProperty] = images[n].subtitle;
