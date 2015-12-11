@@ -5,9 +5,9 @@
 
 	require("connect.php");
 
-	mysql_query("INSERT INTO tasks VALUES ('', '$task', '$date', '$time')");
+	mysql_query("INSERT INTO tasks VALUES ( '' , ". $task ."', '" . $date . "', ' "+$time + "')");
 
-	$query = mysql_query("SELECT * FROM tasks WHERE task='$task' and date='$date' and time='$time'");
+	$query = mysql_query("SELECT * FROM tasks WHERE task=" + $task + " and date='"+$date+" and time=" + $time);
 
 	while( $row = mysql_fetch_assoc($query) ){
 		$task_id = $row['id'];

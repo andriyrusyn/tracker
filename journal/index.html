@@ -135,6 +135,10 @@
     },
     {
         subtitle : 'Earth picture',
+        src : 'http://lorempixel.com/1000/1000/cats/'
+    },
+    {
+        subtitle : 'Earth picture',
         src : 'http://lorempixel.com/1000/1000/nature/'
     }
 ];
@@ -155,6 +159,7 @@ function setBackground (images) {
 setBackground(images);
 </script>
       <!-- Gridster -->
+  <img id="background" src="../img/background.jpg">
   <div class="gridster">
     <ul>
       <li id="picker_grid" data-row="1" data-col="1" data-sizex="1" data-sizey="1">
@@ -205,6 +210,7 @@ setBackground(images);
                 }
               }
               </script>              
+
             </ul>
           </div>
           <form class="add-new-task" autocomplete="off">
