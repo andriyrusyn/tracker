@@ -14,6 +14,7 @@
 	<script type="text/javascript" src="vendor/colorpicker.min.js"></script>
   <script type="text/javascript" src="vendor/jquery-2.1.4.min.js"></script>
   <script type="text/javascript" src="vendor/jquery-1.11.3.js"></script>
+  <script type="text/javascript" src="vendor/dateformat.js"></script>
   <script type="text/javascript" src="vendor/widearea.js"></script>
   <script type="text/javascript" src="vendor/bootstrap/js/bootstrap.js"></script>
   <script src="https://apis.google.com/js/client.js?onload=checkAuth"></script>
@@ -97,16 +98,16 @@
           if (events.length > 0) {
             for (i = 0; i < events.length; i++) {
               var event = events[i];
-              var when = event.start.dateTime;
+              var when = dateFormat(event.start.dateTime, "ddd, mmmm dS, yyyy, h:MM TT") + " to " + dateFormat(event.end.dateTime, "ddd, mmmm dS, yyyy h:MM TT");
               if (!when) {
                 when = event.start.date;
               }
-              appendPre(event.summary + ' (' + when + ')')
+              appendPre(event.summary + '\n (' + when + ')' )
             }
           } else {
             appendPre('No upcoming events found.');
           }
-
+          updatePreStyle(200, 10);
         });
       }
 
@@ -121,6 +122,11 @@
         var textContent = document.createTextNode(message + '\n');
         pre.appendChild(textContent);
       }
+      function updatePreHeight(newHeight, newFontSize) {
+        var pre = document.getElementById('output');
+        pre.style.height = newHeight+"px";
+        pre.style.fontSize = newFontSize+"px";
+      }
 
   </script>
 
@@ -131,8 +137,16 @@
   <div class="gridster">
     <ul>
       <li id="picker_grid" data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-        <div id="picker"></div>
-        <div id="slide"></div>
+        <div id="color-picker" class="cp-default">
+            <div class="picker-wrapper">
+                <div id="picker" class="picker"></div>
+                <div id="picker-indicator" class="picker-indicator"></div>
+            </div>
+            <div class="slide-wrapper">
+                <div id="slide" class="slide"></div>
+                <div id="slide-indicator" class="slide-indicator"></div>
+            </div>
+        </div>
       </li>
       <li id ="text_grid" data-row="1" data-col="2" data-sizex="3" data-sizey="1">
         <div id="wrap">
@@ -151,7 +165,7 @@
         </div>
        </li>
 
-      <li data-row="2" data-col="4" data-sizex="1" data-sizey="1">to-do list</li>
+      <li data-row="2" data-col="4" data-sizex="1" data-sizey="1">To-Do List</li>
       <li data-row="2" data-col="2" data-sizex="2" data-sizey="1">
               <div id="authorize-div">
          <span>Authorize access to Google Calendar API</span>
@@ -162,26 +176,12 @@
         </div>
         <pre id="output"></pre>
       </li>
-      <li data-row="2" data-col="1" data-sizex="1" data-sizey="1">empty</li>
+      <li data-row="2" data-col="1" data-sizex="1" data-sizey="1">User Acconuts</li>
 
     </ul>
   </div>
   <script type="text/javascript" src="vendor/jquery-1.11.3.js"></script>
   <script src="vendor/jquery.gridster.js" type="text/javascript" charset="utf-8"></script>
-      <li id="picker_grid" data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-        <div id="color-picker" class="cp-default">
-            <div class="picker-wrapper">
-                <div id="picker" class="picker"></div>
-                <div id="picker-indicator" class="picker-indicator"></div>
-            </div>
-            <div class="slide-wrapper">
-                <div id="slide" class="slide"></div>
-                <div id="slide-indicator" class="slide-indicator"></div>
-            </div>
-        </div>
-      </li>
-    </ul>
-  </div>
   <div id="returntext"></div> 
   <script src="vendor/jquery.gridster.js" type="text/javascript" charset="utf-8"></script>
   <script type="text/javascript">wideArea();</script>

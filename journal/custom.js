@@ -47,7 +47,8 @@ $(document).ready(function() {
                         document.getElementById('picker-indicator'),
                         mouseSlide, mousePicker
                     );
-                    document.body.style.backgroundColor = hex;
+                    // document.body.style.backgroundColor = hex;
+					$('.gridster ul').css('background-color', hex);                    
                     // document.getElementById('hex').innerHTML = hex;
                     // document.getElementById('rgb').innerHTML = 'rgb(' + rgb.r.toFixed() + ',' + rgb.g.toFixed() + ',' + rgb.b.toFixed() + ')';
                     // document.getElementById('hsv').innerHTML = 'hsv(' + hsv.h.toFixed() + ',' + hsv.s.toFixed(2) + ',' + hsv.v.toFixed(2) + ')';
