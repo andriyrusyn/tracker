@@ -11,6 +11,6 @@
 	  {
 	  echo "Failed to connect to MySQL: " . mysqli_connect_error();
 	  }
-	// mysqli_connect($server, $db_user, $db_pass, $db_name) or die("Could not connect to server!");
-	// mysqli_select_db($db_name) or die("Could not connect to database!");
+	// mysql_connect($db_user, $db_pass, $db_name) or die("Could not connect to server!");
+	// mysql_select_db($db_name) or die("Could not connect to database!");
 ?>

@@ -126,16 +126,16 @@
     <script language="JavaScript">
     var images = [
     {
-        src : 'http://lorempixel.com/2000/2000/abstract/'
+        src : 'http://lorempixel.com/1920/1920/abstract/'
     },
     {
-        src : 'http://lorempixel.com/2000/2000/animals/'
+        src : 'http://lorempixel.com/1920/1920/animals/'
     },
     {
-        src : 'http://lorempixel.com/2000/2000/cats/'
+        src : 'http://lorempixel.com/1920/1920/cats/'
     },
     {
-        src : 'http://lorempixel.com/2000/2000/nature/'
+        src : 'http://lorempixel.com/1920/1920/nature/'
     }
 ];
 
@@ -149,7 +149,7 @@ function setBackground (images) {
     document.body.style.backgroundImage = 'url(' + images[n].src + ')';
 
     // sets the text of the relevant subtitle element:
-    document.getElementById('subtitleElementID')[textProperty] = images[n].subtitle;
+    // document.getElementById('subtitleElementID')[textProperty] = images[n].subtitle;
 }
 
 setBackground(images);

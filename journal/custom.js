@@ -23,12 +23,14 @@ $(document).ready(function() {
 
 	var ajax_success_handler = function(data, textStatus, jqXHR) {
 	    $('#returnstatus').html(jqXHR.status);
-	    $('#returntext').html(jqXHR.responseText);
+	    alert("successfully saved the entry");
+	    // $('#returntext').html(jqXHR.responseText);
 	};
 
 	var ajax_error_handler = function(jqXHR, textStatus, errorThown) {
 	    $('#returnstatus').html(jqXHR.status);
-	    $('#returntext').html(jqXHR.responseText);
+	    alert("something went wrong");
+	    // $('#returntext').html(jqXHR.responseText);
 	};
 
 	// ColorPicker(
