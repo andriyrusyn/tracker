@@ -1,6 +1,6 @@
 <?php
 	$server = "localhost";
-	$db_name = "comp426"; // Enter your database name
+	$db_name = "426project"; // Enter your database name
 	$db_user = "root"; // Enter your username
 	$db_pass = "password"; // Enter your password
 	
