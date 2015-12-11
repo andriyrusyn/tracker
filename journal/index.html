@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <title>426 Project</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link href="vendor/speech-input.css" rel="stylesheet">
+  <link href="vendor/widearea.css" rel="stylesheet">
+  <link href="vendor/jquery.gridster.css" rel="stylesheet">
+  <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+  <link href="custom.css" rel="stylesheet">
+
+  <script type="text/javascript" src="vendor/colorpicker.min.js"></script>
+  <script type="text/javascript" src="vendor/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src="vendor/jquery-1.11.3.js"></script>
+  <script type="text/javascript" src="vendor/dateformat.js"></script>
+  <script type="text/javascript" src="vendor/widearea.js"></script>
+  <script type="text/javascript" src="vendor/bootstrap/js/bootstrap.js"></script>
+  <script src="https://apis.google.com/js/client.js?onload=checkAuth"></script>
+  <script type="text/javascript" src="custom.js"></script>
+  <script type="text/javascript">
+      // Your Client ID can be retrieved from your project in the Google
+      // Developer Console, https://console.developers.google.com
+      var CLIENT_ID = '1033461392809-pnblv0o56p20c8ipudh73c6u148j9ok7.apps.googleusercontent.com';
+      var SCOPES = ["https://www.googleapis.com/auth/calendar.readonly"];
+      /**
+       * Check if current user has authorized this application.
+       */
+      function checkAuth() {
+        gapi.auth.authorize(
+          {
+            'client_id': CLIENT_ID,
+            'scope': SCOPES.join(' '),
+            'immediate': true
+          }, handleAuthResult);
+      }
+      /**
+       * Handle response from authorization server.
+       *
+       * @param {Object} authResult Authorization result.
+       */
+      function handleAuthResult(authResult) {
+        var authorizeDiv = document.getElementById('authorize-div');
+        if (authResult && !authResult.error) {
+          // Hide auth UI, then load client library.
+          authorizeDiv.style.display = 'none';
+          loadCalendarApi();
+        } else {
+          // Show auth UI, allowing the user to initiate authorization by
+          // clicking authorize button.
+          authorizeDiv.style.display = 'inline';
+        }
+      }
+      /**
+       * Initiate auth flow in response to user clicking authorize button.
+       *
+       * @param {Event} event Button click event.
+       */
+      function handleAuthClick(event) {
+        gapi.auth.authorize(
+          {client_id: CLIENT_ID, scope: SCOPES, immediate: false},
+          handleAuthResult);
+        return false;
+      }
+      /**
+       * Load Google Calendar client library. List upcoming events
+       * once client library is loaded.
+       */
+      function loadCalendarApi() {
+        gapi.client.load('calendar', 'v3', listUpcomingEvents);
+      }
+      /**
+       * Print the summary and start datetime/date of the next ten events in
+       * the authorized user's calendar. If no events are found an
+       * appropriate message is printed.
+       */
+      function listUpcomingEvents() {
+        var request = gapi.client.calendar.events.list({
+          'calendarId': 'primary',
+          'timeMin': (new Date()).toISOString(),
+          'showDeleted': false,
+          'singleEvents': true,
+          'maxResults': 10,
+          'orderBy': 'startTime'
+        });
+        request.execute(function(resp) {
+          var events = resp.items;
+          appendPre('Upcoming events:');
+          if (events.length > 0) {
+            for (i = 0; i < events.length; i++) {
+              var event = events[i];
+              var when = dateFormat(event.start.dateTime, "ddd, mmmm dS, yyyy, h:MM TT") + " to " + dateFormat(event.end.dateTime, "ddd, mmmm dS, yyyy h:MM TT");
+              if (!when) {
+                when = event.start.date;
+              }
+              appendPre(event.summary + '\n (' + when + ')' )
+            }
+          } else {
+            appendPre('No upcoming events found.');
+          }
+          updatePreStyle(200, 10);
+        });
+      }
+      /**
+       * Append a pre element to the body containing the given message
+       * as its text node.
+       *
+       * @param {string} message Text to be placed in pre element.
+       */
+      function appendPre(message) {
+        var pre = document.getElementById('output');
+        var textContent = document.createTextNode(message + '\n');
+        pre.appendChild(textContent);
+      }
+      function updatePreHeight(newHeight, newFontSize) {
+        var pre = document.getElementById('output');
+        pre.style.height = newHeight+"px";
+        pre.style.fontSize = newFontSize+"px";
+      }
+  </script>
+
+  </head>
+
+  <body>
+      <!-- Gridster -->
+  <div class="gridster">
+    <ul>
+      <li id="picker_grid" data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+        <div id="color-picker" class="cp-default">
+            <div class="picker-wrapper">
+                <div id="picker" class="picker"></div>
+                <div id="picker-indicator" class="picker-indicator"></div>
+            </div>
+            <div class="slide-wrapper">
+                <div id="slide" class="slide"></div>
+                <div id="slide-indicator" class="slide-indicator"></div>
+            </div>
+        </div>
+      </li>
+      <li id ="text_grid" data-row="1" data-col="2" data-sizex="3" data-sizey="1">
+        <div id="wrap">
+          <div class="container">
+            <div class="page-header">
+              <h1 style="font-weight: normal;"><strong>Journal</strong></h1>
+              <div class="clearfix"></div>
+            </div>
+            <form method="POST" action="">
+              <div id="widearea-container">
+                  <textarea placeholder="Type something..." data-widearea="enable" id="journal-input" name="journal-input"></textarea>
+              </div>
+              <input type="submit" id="submit" value="save entry" name="submit">
+            </form>
+          </div>
+        </div>
+       </li>
+
+      <li data-row="2" data-col="4" data-sizex="1" data-sizey="1">
+        <div class="wrap2">
+          <div class="task-list">
+            <ul>
+
+            <?php 
+              require("includes/connect.php");
+
+              $query = mysql_query("SELECT * FROM tasks ORDER BY date ASC, time ASC");
+              $numrows = mysql_num_rows($query);
+
+              if($numrows>0){
+                while( $row = mysql_fetch_assoc( $query ) ){
+
+                  $task_id = $row['id'];
+                  $task_name = $row['task'];
+
+                  echo '<li>
+                      <span>'.$task_name.'</span>
+                      <img id="'.$task_id.'" class="delete-button" width="10px" src="../img/close.svg" />
+                      </li>';
+                }
+              }
+
+            ?>
+              
+            </ul>
+          </div>
+          <form class="add-new-task" autocomplete="off">
+            <input type="text" name="new-task" placeholder="Add a new item..." />
+          </form>
+        </div><!-- #wrap -->
+      </li>
+      <li data-row="2" data-col="2" data-sizex="2" data-sizey="1">
+              <div id="authorize-div">
+         <span>Authorize access to Google Calendar API</span>
+        <!--Button for the user to click to initiate auth sequence -->
+         <button id="authorize-button" onclick="handleAuthClick(event)">
+           Authorize
+         </button>
+        </div>
+        <pre id="output"></pre>
+      </li>
+      <li data-row="2" data-col="1" data-sizex="1" data-sizey="1">Manage Account
+        </br>
+        </br>
+          <a class = 'btn' href='http://localhost:8888/tracker/userfrosting-UserFrosting-ec44c52/public/account/login'>Login</a>
+        </br>
+        </br>
+          <a class = 'btn' href='http://localhost:8888/tracker/userfrosting-UserFrosting-ec44c52/public/account/register'>Register</a>
+        </br>
+        </br>
+          <a class = 'btn' href='http://localhost:8888/tracker/userfrosting-UserFrosting-ec44c52/public/account/forgot-password'>Forgot Password</a>
+        </br>
+        </br>
+          <a class = 'btn' href='http://localhost:8888/tracker/userfrosting-UserFrosting-ec44c52/public/account/resend-activation'>Resend Activation</a>
+
+      </li>
+    </ul>
+  </div>
+  <script type="text/javascript" src="vendor/jquery-1.11.3.js"></script>
+  <div id="returntext"></div> 
+  <script src="vendor/jquery.gridster.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript">wideArea();</script>
+  <script type="text/javascript" src="vendor/speech-input.js"></script>
+  <script type="text/javascript">
+    var gridster;
+    $(function(){
+        $(".gridster ul").gridster({
+          widget_base_dimensions: [250, 210],
+          widget_margins: [5, 5],
+          helper: 'clone',
+          avoid_overlapped_widgets: true,
+          autogenerate_stylesheet: true,
+          max_cols:4,
+          //widget_margins: [5, 5],
+          helper: 'clone',
+          avoid_overlapped_widgets: true//,
+          // resize: {
+          //   enabled: true,
+          //   max_size: [4, 4],
+          //   min_size: [1, 1],
+          // }
+        }).data('gridster');
+        // resize widgets on hover
+        // gridster.$el
+        //   .on('mouseenter', '> li', function() {
+        //       gridster.resize_widget($(this), 3, 3);
+        //   })
+        //   .on('mouseleave', '> li', function() {
+        //       gridster.resize_widget($(this), 1, 1);
+        //   });
+      });
+    </script>
+    
+  </body>
+
+ <!-- <script type="text/javascript" src="vendor/jquery-2.1.4.min.js"></script>
+  <script>
+    
+    add_task(); // Call the add_task function
+    delete_task(); // Call the delete_task function
+
+    function add_task() {
+
+      $('.add-new-task').submit(function(){
+
+        var new_task = $('.add-new-task input[name=new-task]').val();
+
+        if(new_task != ''){
+
+          $.post('includes/add-task.php', { task: new_task }, function( data ) {
+
+            $('.add-new-task input[name=new-task]').val('');
+
+            $(data).appendTo('.task-list ul').hide().fadeIn();
+
+            delete_task();
+          });
+        }
+
+        return false; // Ensure that the form does not submit twice
+      });
+    }
+
+    function delete_task() {
+
+      $('.delete-button').click(function(){
+
+        var current_element = $(this);
+
+        var id = $(this).attr('id');
+
+        $.post('includes/delete-task.php', { task_id: id }, function() {
+
+          current_element.parent().fadeOut("fast", function() { $(this).remove(); });
+        });
+      });
+    }
+
+  </script> -->
+</html>

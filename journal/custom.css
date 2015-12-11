@@ -1,0 +1,253 @@
+
+	    #picker { 
+        width: 200px; 
+        height: 200px;
+        position: absolute;
+        left:40px;
+      }
+      #slide {
+        width: 30px;
+        height: 200px;
+        position: absolute;
+      }
+      /* Sticky footer styles
+      -------------------------------------------------- */
+      html,
+      body {
+        height: 100%;
+        /* The html and body elements cannot have any padding or margin. */
+      }
+
+      textarea {
+        height: 125px;
+        width:100%;
+        max-width: 100%;
+        box-sizing:border-box;
+        margin:0;
+        border: 1px solid #ddd;
+        border-radius: 0;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        resize: none;
+      }
+
+      .page-header {
+        align-content: center;
+      }
+      .container {
+        width: auto;
+        height: auto;
+        max-width: 800px;
+      }
+      .container .credit {
+        margin: 20px 0;
+      }
+      #widearea-container {
+        border: 5px solid #eee;
+        border-radius: 2px;
+        box-shadow: 0px 3px 1px #ddd;
+        width:100%;
+      }
+
+      /* Wrapper for page content to push down footer */
+      #wrap {
+        min-height: 100%;
+        height: auto !important;
+        height: 100%;
+        /* Negative indent footer by it's height */
+        margin: 0 auto -60px;
+      }
+
+      #submit {
+        height: 20px;
+        width: 99%;
+        padding:0px;
+        background-color: #66A9FF;
+        border:1px solid #666;
+        color: #000;
+      }
+
+      #si-btn {
+        border: 0px;
+        color: 000;
+        background: url('../img/mic.gif');
+        position: relative;
+        height: 16px;
+        width: 16px;
+        top: 5px;
+      }
+      /* Set the fixed height of the footer here */
+      #push,
+      #footer {
+        height: 60px;
+      }
+      #footer {
+        background-color: #f5f5f5;
+      }
+
+      .detail-widearea {
+        margin-top: 50px;
+        -webkit-transition: all 0.2s ease-out;
+        -moz-transition: all 0.2s ease-out;
+        -ms-transition: all 0.2s ease-out;
+        -o-transition: all 0.2s ease-out;
+        transition: all 0.2s ease-out;
+      }
+
+      /*/
+      /*   Gridster
+      /*/
+
+      .gridster * {
+        margin:0;
+        padding:0;
+      }
+
+      ul {
+        list-style-type: none;
+      }
+      body {
+          font-size: 14px;
+          font-family: 'Helvetica Neue', Arial, sans-serif;
+          color: #444;
+          margin: 30px 40px;
+      }
+
+      .controls {
+          margin-bottom: 10px;
+      }
+
+      /*/
+      /* gridster
+      /*/
+
+      .gridster ul {
+          background-color: #EFEFEF;
+          width: 69.5%;
+          margin: auto;
+      }
+
+      .gridster li {
+          font-size: 1em;
+          font-weight: bold;
+          text-align: center;
+          line-height: 100%;
+          border: 3px solid #ccc;
+          padding: 5px;
+          align-items: center;
+      }
+
+      .gridster li#text_grid {
+          font-size: 1em;
+          font-weight: bold;
+          text-align: center;
+          line-height: 100%;
+          align-items: center;
+          padding:0px;
+      }
+      .gridster {
+          margin: 0 auto;
+          opacity: 1;
+          -webkit-transition: opacity .6s;
+          -moz-transition: opacity .6s;
+          -o-transition: opacity .6s;
+          -ms-transition: opacity .6s;
+          transition: opacity .6s;
+
+          height: 420px;
+          width:  100%;
+      }
+
+      .gridster .gs-w {
+          background: #DDD;
+          cursor: pointer;
+      }
+
+      .gridster .player {
+          background: #BBB;
+      }
+      .gridster .preview-holder {
+          border: none!important;
+          background: red!important;
+      }
+
+/* Task List *********************************************/
+
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
+.wrap2 {
+  width: 265px;
+  margin: 0 auto;
+}
+
+.task-list {
+  width: 88%;
+  min-height: 150px;
+  background: #fff;
+  box-shadow: 2px 2px 0px #ddd;
+  margin-top: 0px;
+  padding: 22px 6%;
+}
+
+.task-list li {
+  font-size: 1.2em;
+  padding: 8px 0;
+  overflow: hidden;
+}
+
+.task-list li span {
+  width: 86%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  float: left;
+}
+
+.task-list li .delete-button {
+  width: 10px;
+  height: auto;
+  padding-top: 7px;
+  float: right;
+  vertical-align: top;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.task-list li .delete-button:hover {
+  opacity: 0.85;
+}
+
+.add-new-task {
+  margin-top: 5px;
+  padding-bottom: 60px;
+}
+
+.add-new-task input[type='text'] {
+  width: 234px;
+  font: normal 1.2em 'Open Sans', Arial, sans-serif;
+  color: #999;
+  box-shadow: 2px 2px 0px #ddd;
+  border: none;
+  border-radius: none;
+  display: block;
+  padding: 12px 6%;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+      appearance: none;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+      box-sizing: border-box;
+}
+
+:focus {
+  outline: 0;
+}
+
+@media all and (max-width: 425px) {
+  .wrap2 {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
