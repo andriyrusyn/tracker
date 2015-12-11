@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -189,9 +190,7 @@ setBackground(images);
         <div class="wrap2">
           <div class="task-list">
             <ul>
-
-
-            <script type="text/php">
+              <script type="text/php">
               require("includes/connect.php");
               $query = mysql_query("SELECT * FROM tasks ORDER BY date ASC, time ASC");
               $numrows = mysql_num_rows($query);
@@ -205,8 +204,8 @@ setBackground(images);
                       </li>';
                 }
               }
-            </script>
-              
+              </script>              
+
             </ul>
           </div>
           <form class="add-new-task" autocomplete="off">
@@ -264,7 +263,6 @@ setBackground(images);
       </li>
     </ul>
   </div>
-  <script type="text/javascript" src="vendor/jquery-1.11.3.js"></script>
   <div id="returntext"></div> 
   <script src="vendor/jquery.gridster.js" type="text/javascript" charset="utf-8"></script>
   <script type="text/javascript">wideArea();</script>
