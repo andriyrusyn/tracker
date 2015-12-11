@@ -159,13 +159,14 @@
           <div class="task-list">
             <ul>
 
-            <?php 
+
+            <!--<?php 
               require("includes/connect.php");
 
               $query = mysql_query("SELECT * FROM tasks ORDER BY date ASC, time ASC");
               $numrows = mysql_num_rows($query);
 
-              if($numrows>0){
+              if($numrows > 0){
                 while( $row = mysql_fetch_assoc( $query ) ){
 
                   $task_id = $row['id'];
@@ -178,7 +179,7 @@
                 }
               }
 
-            ?>
+            ?> -->
               
             </ul>
           </div>
@@ -251,9 +252,7 @@
     
   </body>
 
- <!-- <script type="text/javascript" src="vendor/jquery-2.1.4.min.js"></script>
   <script>
-    
     add_task(); // Call the add_task function
     delete_task(); // Call the delete_task function
 
@@ -294,5 +293,5 @@
       });
     }
 
-  </script> -->
+  </script>
 </html>
