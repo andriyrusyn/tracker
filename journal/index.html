@@ -10,7 +10,6 @@
   <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
   <link href="custom.css" rel="stylesheet">
 
-
 	<script type="text/javascript" src="vendor/colorpicker.min.js"></script>
   <script type="text/javascript" src="vendor/jquery-2.1.4.min.js"></script>
   <script type="text/javascript" src="vendor/jquery-1.11.3.js"></script>
@@ -176,12 +175,24 @@
         </div>
         <pre id="output"></pre>
       </li>
-      <li data-row="2" data-col="1" data-sizex="1" data-sizey="1">User Acconuts</li>
+      <li data-row="2" data-col="1" data-sizex="1" data-sizey="1">Manage Account
+        </br>
+        </br>
+          <a class = 'btn' href='http://localhost:8888/tracker/userfrosting-UserFrosting-ec44c52/public/account/login'>Login</a>
+        </br>
+        </br>
+          <a class = 'btn' href='http://localhost:8888/tracker/userfrosting-UserFrosting-ec44c52/public/account/register'>Register</a>
+        </br>
+        </br>
+          <a class = 'btn' href='http://localhost:8888/tracker/userfrosting-UserFrosting-ec44c52/public/account/forgot-password'>Forgot Password</a>
+        </br>
+        </br>
+          <a class = 'btn' href='http://localhost:8888/tracker/userfrosting-UserFrosting-ec44c52/public/account/resend-activation'>Resend Activation</a>
 
+      </li>
     </ul>
   </div>
   <script type="text/javascript" src="vendor/jquery-1.11.3.js"></script>
-  <script src="vendor/jquery.gridster.js" type="text/javascript" charset="utf-8"></script>
   <div id="returntext"></div> 
   <script src="vendor/jquery.gridster.js" type="text/javascript" charset="utf-8"></script>
   <script type="text/javascript">wideArea();</script>
@@ -215,5 +226,53 @@
         //   });
       });
     </script>
+    <p class="lead">Please sign in.</p>
+<div id="userfrosting-alerts">
+    </div>
+<form name="login" method="post" action="http://localhost:8888/tracker/userfrosting-UserFrosting-ec44c52/public/account/login" class="form-horizontal">
+    <div class="row">
+      <div class="col-md-offset-3 col-md-6">
+            <div class="form-group">
+                <input type="text" class="form-control " name="user_name" autocomplete="off" value="" placeholder="Username or Email">
+            </div>
+      </div>
+      <div class="col-md-offset-3 col-md-6">
+        <div class="form-group">
+            <input type="password" class="form-control " name="password" autocomplete="off" value="" placeholder="Password">
+        </div>
+      </div>
+      <div class="col-md-offset-3 col-md-6">
+        <div class="form-group">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="rememberme"> Remember me
+                </label>
+            </div>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <button type="submit" class="btn btn-success">
+            Login
+        </button>
+      </div>
+    </div>
+</form>
+<div class="jumbotron-links">
+        <div class='row'>
+        <div class='col-md-12'>
+          <a href='http://localhost:8888/tracker/userfrosting-UserFrosting-ec44c52/public/account/register' class='btn btn-link' role='button' value='Register'>Not a member yet?  Register here.</a>
+        </div>
+    </div>
+        <div class='row'>
+        <div class='col-md-12'>
+          <a href='http://localhost:8888/tracker/userfrosting-UserFrosting-ec44c52/public/account/forgot-password' class='btn btn-link' role='button' value='Forgot Password'>Forgot your password?</a>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-md-12'>
+          <a href='http://localhost:8888/tracker/userfrosting-UserFrosting-ec44c52/public/account/resend-activation' class='btn btn-link' role='button' value='Activate'>Resend activation email</a>
+        </div>
+    </div>
+</div>
   </body>
 </html>
