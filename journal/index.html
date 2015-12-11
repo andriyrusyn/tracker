@@ -160,26 +160,22 @@
           <div class="task-list">
             <ul>
 
-            <?php 
-              require("includes/connect.php");
 
+            <!--<?php 
+              require("includes/connect.php");
               $query = mysql_query("SELECT * FROM tasks ORDER BY date ASC, time ASC");
               $numrows = mysql_num_rows($query);
-
-              if($numrows>0){
+              if($numrows > 0){
                 while( $row = mysql_fetch_assoc( $query ) ){
-
                   $task_id = $row['id'];
                   $task_name = $row['task'];
-
                   echo '<li>
                       <span>'.$task_name.'</span>
                       <img id="'.$task_id.'" class="delete-button" width="10px" src="../img/close.svg" />
                       </li>';
                 }
               }
-
-            ?>
+            ?> -->
               
             </ul>
           </div>
@@ -252,48 +248,30 @@
     
   </body>
 
- <!-- <script type="text/javascript" src="vendor/jquery-2.1.4.min.js"></script>
   <script>
-    
     add_task(); // Call the add_task function
     delete_task(); // Call the delete_task function
-
     function add_task() {
-
       $('.add-new-task').submit(function(){
-
         var new_task = $('.add-new-task input[name=new-task]').val();
-
         if(new_task != ''){
-
           $.post('includes/add-task.php', { task: new_task }, function( data ) {
-
             $('.add-new-task input[name=new-task]').val('');
-
             $(data).appendTo('.task-list ul').hide().fadeIn();
-
             delete_task();
           });
         }
-
         return false; // Ensure that the form does not submit twice
       });
     }
-
     function delete_task() {
-
       $('.delete-button').click(function(){
-
         var current_element = $(this);
-
         var id = $(this).attr('id');
-
         $.post('includes/delete-task.php', { task_id: id }, function() {
-
           current_element.parent().fadeOut("fast", function() { $(this).remove(); });
         });
       });
     }
-
-  </script> -->
+  </script>
 </html>
