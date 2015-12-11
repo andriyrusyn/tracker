@@ -71,7 +71,7 @@
       #si-btn {
         border: 1px solid #666;
         color: 000;
-        background: #66A9FF url('../img/mic.gif');
+        background: #2275FF url('../img/mic.gif');
         position: relative;
 
       }
@@ -168,4 +168,139 @@
           background: red!important;
       }
 
+/* Task List *********************************************/
 
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
+/*body { 
+  font: normal 14px 'Open Sans', Arial, sans-serif;
+  color: #999;
+  background: #f1f1f1;
+}*/
+
+.wrap2 {
+  width: 265px;
+  margin: 0 auto;
+}
+
+.task-list {
+  width: 88%;
+  min-height: 145px;
+  max-height: 150px;
+  background: #fff;
+  box-shadow: 2px 2px 0px #ddd;
+  margin-top: 0px;
+  padding: 22px 6%;
+}
+
+.task-list li {
+  font-size: 1.2em;
+  padding: 8px 0;
+  overflow: hidden;
+}
+
+.task-list li span {
+  width: 86%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  float: left;
+}
+
+.task-list li .delete-button {
+  width: 10px;
+  height: auto;
+  padding-top: 7px;
+  float: right;
+  vertical-align: top;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.task-list li .delete-button:hover {
+  opacity: 0.85;
+}
+
+.add-new-task {
+  margin-top: 5px;
+  padding-bottom: 60px;
+}
+
+.add-new-task input[type='text'] {
+  width: 100%;
+  font: normal 1.2em 'Open Sans', Arial, sans-serif;
+  color: #999;
+  box-shadow: 2px 2px 0px #ddd;
+  border: none;
+  border-radius: none;
+  display: block;
+  padding: 12px 6%;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+      appearance: none;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+      box-sizing: border-box;
+}
+
+:focus {
+  outline: 0;
+}
+
+@media all and (max-width: 425px) {
+  .wrap {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+ HTML5 display-role reset for older browsers 
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Task List *********************************************/
