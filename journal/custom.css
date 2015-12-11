@@ -69,11 +69,13 @@
       }
 
       #si-btn {
-        border: 1px solid #666;
+        border: 0px;
         color: 000;
-        background: #2275FF url('../img/mic.gif');
+        background: url('../img/mic.gif');
         position: relative;
-
+        height: 16px;
+        width: 16px;
+        top: 5px;
       }
       /* Set the fixed height of the footer here */
       #push,
@@ -122,6 +124,8 @@
 
       .gridster ul {
           background-color: #EFEFEF;
+          width: 69.5%;
+          margin: auto;
       }
 
       .gridster li {
@@ -279,8 +283,8 @@ time, mark, audio, video {
   font: inherit;
   vertical-align: baseline;
 }
- HTML5 display-role reset for older browsers 
-article, aside, details, figcaption, figure, 
+/* HTML5 display-role reset for older browsers 
+*/article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
   display: block;
 }

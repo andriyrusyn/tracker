@@ -47,10 +47,11 @@ $(document).ready(function() {
                         document.getElementById('picker-indicator'),
                         mouseSlide, mousePicker
                     );
-                    document.body.style.backgroundColor = hex;
-                    document.getElementById('hex').innerHTML = hex;
-                    document.getElementById('rgb').innerHTML = 'rgb(' + rgb.r.toFixed() + ',' + rgb.g.toFixed() + ',' + rgb.b.toFixed() + ')';
-                    document.getElementById('hsv').innerHTML = 'hsv(' + hsv.h.toFixed() + ',' + hsv.s.toFixed(2) + ',' + hsv.v.toFixed(2) + ')';
+                    // document.body.style.backgroundColor = hex;
+					$('.gridster ul').css('background-color', 'rgba(' + rgb.r.toFixed()+', '+ rgb.g.toFixed() +' , '+ rgb.b.toFixed() +', 0.4)');
+                    // document.getElementById('hex').innerHTML = hex;
+                    // document.getElementById('rgb').innerHTML = 'rgb(' + rgb.r.toFixed() + ',' + rgb.g.toFixed() + ',' + rgb.b.toFixed() + ')';
+                    // document.getElementById('hsv').innerHTML = 'hsv(' + hsv.h.toFixed() + ',' + hsv.s.toFixed(2) + ',' + hsv.v.toFixed(2) + ')';
             });
             cp.setHex('#D4EDFB');
             

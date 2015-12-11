@@ -15,7 +15,7 @@
   <script type="text/javascript" src="vendor/jquery-1.11.3.js"></script>
   <script type="text/javascript" src="vendor/widearea.js"></script>
   <script type="text/javascript" src="custom.js"></script>
-  <!--<script type="text/javascript" src="vendor/speech-input.js"></script>-->
+  <!--<script type="text/javascript" src="vendor/speech-input.js"></script> -->
 
   </head>
 
@@ -73,14 +73,13 @@
             ?>            
           </ul>
         </div>
-      </div>
+        </div>
         <form class="add-new-task" autocomplete="off">
-          <input type="text" name="new-task" placeholder="Add a new item..." />
+          <input type="text" name="new-task" placeholder="Add a new item.."/>
         </form>
       </li>
       <li data-row="2" data-col="2" data-sizex="1" data-sizey="1">calendar</li>
       <li data-row="2" data-col="1" data-sizex="1" data-sizey="1">empty</li>
-
     </ul>
   </div>
 
@@ -101,51 +100,8 @@
     </ul>
   </div>
   <div id="returntext"></div> 
-  <script src="vendor/jquery.gridster.js" type="text/javascript" charset="utf-8"></script>
+
   <script type="text/javascript">wideArea();</script>
-  <script type = "text/javascript">
-    
-    add_task(); // Call the add_task function
-    delete_task(); // Call the delete_task function
-
-    function add_task() {
-
-      $('.add-new-task').submit(function(){
-
-        var new_task = $('.add-new-task input[name=new-task]').val();
-
-        if(new_task != ''){
-
-          $.post('includes/add-task.php', { task: new_task }, function( data ) {
-
-            $('.add-new-task input[name=new-task]').val('');
-
-            $(data).appendTo('.task-list ul').hide().fadeIn();
-
-            delete_task();
-          });
-        }
-
-        return false; // Ensure that the form does not submit twice
-      });
-    }
-
-    function delete_task() {
-
-      $('.delete-button').click(function(){
-
-        var current_element = $(this);
-
-        var id = $(this).attr('id');
-
-        $.post('includes/delete-task.php', { task_id: id }, function() {
-
-          current_element.parent().fadeOut("fast", function() { $(this).remove(); });
-        });
-      });
-    }
-
-  </script>
   <script type="text/javascript">
     var gridster;
     $(function(){

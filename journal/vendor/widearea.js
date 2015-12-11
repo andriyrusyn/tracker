@@ -141,9 +141,10 @@
       speechInputIcon.className = 'widearea-icon speechinput';       // CODE ERIC INSERTED
       speechInputIcon.title = this._options.speechInputIconLabel;   // CODE ERIC INSERTED
       speechInputIcon.id = 'si-btn';
-      speechInputIcon.style.height = '50px';
-      speechInputIcon.style.width = '50px';
-      speechInputIcon.style.right = '20px';
+      speechInputIcon.style.height = '52px';
+      speechInputIcon.style.width = '52px';
+      speechInputIcon.style.top = '-10px';
+      speechInputIcon.style.right = '18px';
       speechInputIcon.style.transform = 'scale(.5,.5)';
 
 
