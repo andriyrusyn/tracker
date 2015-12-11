@@ -155,8 +155,8 @@
           -ms-transition: opacity .6s;
           transition: opacity .6s;
 
-          height: 42g0px;
-          width:  1500px;
+          height: 420px;
+          width:  100%;
       }
 
       .gridster .gs-w {
