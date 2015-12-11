@@ -5,12 +5,13 @@ $(document).ready(function() {
 	    e.stopPropagation();
 
    		var entry = $("#journal-input").val();
-	    var ajax_url = "submit.php";
+	    var ajax_url = "server/submit.php";
 
 	    // Set up settings for AJAX call
 	    var settings = {
 			type: "POST",
-			data: {'entry': entry},
+			data: {'author_id': author_id,
+				   'entry': entry},
 			success: ajax_success_handler,
 			error: ajax_error_handler,
 			cache: false

@@ -259,3 +259,8 @@
   padding-bottom: 10px;
   padding-left: 20px;
 }
+
+#entry_list{
+  height:165px;
+  overflow:auto;
+}
