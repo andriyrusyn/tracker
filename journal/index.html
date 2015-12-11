@@ -90,7 +90,7 @@
           if (events.length > 0) {
             for (i = 0; i < events.length; i++) {
               var event = events[i];
-              var when = dateFormat(event.start.dateTime, "ddd, mmmm dS, yyyy, h:MM TT") + " to " + dateFormat(event.end.dateTime, "ddd, mmmm dS, yyyy h:MM TT");
+              var when = dateFormat(event.start.dateTime, "ddd, mmmm dS, yyyy, h:MM TT") + " to    " + dateFormat(event.end.dateTime, "ddd, mmmm dS, yyyy h:MM TT");
               if (!when) {
                 when = event.start.date;
               }
@@ -113,7 +113,7 @@
         var textContent = document.createTextNode(message + '\n');
         pre.appendChild(textContent);
       }
-      function updatePreHeight(newHeight, newFontSize) {
+      function updatePreStyle(newHeight, newFontSize) {
         var pre = document.getElementById('output');
         pre.style.height = newHeight+"px";
         pre.style.fontSize = newFontSize+"px";
@@ -126,16 +126,16 @@
     <script language="JavaScript">
     var images = [
     {
-        src : 'http://lorempixel.com/1920/1920/abstract/'
+        src : 'http://lorempixel.com/1500/1000/abstract/'
     },
     {
-        src : 'http://lorempixel.com/1920/1920/animals/'
+        src : 'http://lorempixel.com/1500/1000/animals/'
     },
     {
-        src : 'http://lorempixel.com/1920/1920/cats/'
+        src : 'http://lorempixel.com/1500/1000/cats/'
     },
     {
-        src : 'http://lorempixel.com/1920/1920/nature/'
+        src : 'http://lorempixel.com/1500/1000/nature/'
     }
 ];
 
@@ -186,7 +186,7 @@ setBackground(images);
         </div>
        </li>
 
-      <li data-row="2" data-col="4" data-sizex="1" data-sizey="1">
+      <!-- <li data-row="2" data-col="4" data-sizex="1" data-sizey="1">
         <div class="wrap2">
           <div class="task-list">
             <ul>
@@ -211,28 +211,30 @@ setBackground(images);
           <form class="add-new-task" autocomplete="off">
             <input type="text" name="new-task" placeholder="Add a new item..." />
           </form>
-        </div><!-- #wrap -->
-      </li>
-      <li data-row="2" data-col="3" data-sizex="1" data-sizey="1">Quote
+        </div>
+      </li> -->
+      <li data-row="2" data-col="3" data-sizex="2" data-sizey="1">Quote
        </br>
        </br>
+       <p id="quotation">
        <script language="JavaScript">
         var Quotation=new Array() 
-        Quotation[0] = "Things work out best for those who make the best of how things work out. --John Wooden";
-        Quotation[1] = "If you are not willing to risk the usual you will have to settle for the ordinary. -Jim Rohn";
-        Quotation[2] = "Success is walking from failure to failure with no loss of enthusiasm. -Winston Churchill";
-        Quotation[3] = "You miss 100% of the shots you don’t take. –Wayne Gretzky";
-        Quotation[4] = "Eighty percent of success is showing up. –Woody Allen";
-        Quotation[5] = "Your time is limited, so don’t waste it living someone else’s life. –Steve Jobs";
+        Quotation[0] = "Things work out best for those who make the best of how things work out.  -John Wooden";
+        Quotation[1] = "If you are not willing to risk the usual you will have to settle for the ordinary.                            -Jim Rohn";
+        Quotation[2] = "Success is walking from failure to failure with no loss of enthusiasm.  -Winston Churchill";
+        Quotation[3] = "You miss 100% of the shots you don’t take.     –Wayne Gretzky";
+        Quotation[4] = "Eighty percent of success is showing up.        –Woody Allen";
+        Quotation[5] = "Your time is limited, so don’t waste it living someone else’s life.   –Steve Jobs";
         Quotation[6] = "Winning isn’t everything, but wanting to win is. –Vince Lombardi";
-        Quotation[7] = "The two most important days in your life are the day you are born and the day you find out why. –Mark Twain";
-        Quotation[8] = "The mind is everything. What you think you become.  –Buddha";
-        Quotation[9] = "Life is 10% what happens to me and 90% of how I react to it. –Charles Swindoll";
+        Quotation[7] = "The two most important days in your life are the day you are born and the day you find out why.                       –Mark Twain";
+        Quotation[8] = "The mind is everything. What you think you become.    –Buddha";
+        Quotation[9] = "Life is 10% what happens to me and 90% of how I react to it –Charles Swindoll";
         var Q = Quotation.length;
         var whichQuotation=Math.round(Math.random()*(Q-1));
         function showQuotation(){document.write(Quotation[whichQuotation]);}
         showQuotation();
           </script>
+        </p>
       </li>
       <li data-row="2" data-col="2" data-sizex="1" data-sizey="1">
               <div id="authorize-div">
