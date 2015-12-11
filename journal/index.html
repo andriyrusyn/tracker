@@ -90,7 +90,7 @@
           if (events.length > 0) {
             for (i = 0; i < events.length; i++) {
               var event = events[i];
-              var when = dateFormat(event.start.dateTime, "ddd, mmmm dS, yyyy, h:MM TT") + " to " + dateFormat(event.end.dateTime, "ddd, mmmm dS, yyyy h:MM TT");
+              var when = dateFormat(event.start.dateTime, "ddd, mmmm dS, yyyy, h:MM TT") + " to    " + dateFormat(event.end.dateTime, "ddd, mmmm dS, yyyy h:MM TT");
               if (!when) {
                 when = event.start.date;
               }
@@ -113,7 +113,7 @@
         var textContent = document.createTextNode(message + '\n');
         pre.appendChild(textContent);
       }
-      function updatePreHeight(newHeight, newFontSize) {
+      function updatePreStyle(newHeight, newFontSize) {
         var pre = document.getElementById('output');
         pre.style.height = newHeight+"px";
         pre.style.fontSize = newFontSize+"px";
@@ -186,7 +186,7 @@ setBackground(images);
         </div>
        </li>
 
-      <li data-row="2" data-col="4" data-sizex="1" data-sizey="1">
+      <!-- <li data-row="2" data-col="4" data-sizex="1" data-sizey="1">
         <div class="wrap2">
           <div class="task-list">
             <ul>
@@ -212,8 +212,8 @@ setBackground(images);
             <input type="text" name="new-task" placeholder="Add a new item..." />
           </form>
         </div><!-- #wrap -->
-      </li>
-      <li data-row="2" data-col="3" data-sizex="1" data-sizey="1">Quote
+      </li> -->
+      <li data-row="2" data-col="3" data-sizex="2" data-sizey="1">Quote
        </br>
        </br>
        <p id="quotation">
