@@ -122,6 +122,41 @@
   </head>
 
   <body>
+    <script language="JavaScript">
+    var images = [
+    {
+        subtitle : 'Earth picture',
+        src : 'http://lorempixel.com/1000/1000/abstract/'
+    },
+    {
+        subtitle : 'Earth picture',
+        src : 'http://lorempixel.com/1000/1000/animals/'
+    },
+    {
+        subtitle : 'Earth picture',
+        src : 'http://lorempixel.com/1000/1000/cats/'
+    },
+    {
+        subtitle : 'Earth picture',
+        src : 'http://lorempixel.com/1000/1000/nature/'
+    }
+];
+
+function setBackground (images) {
+    // generates a random integer between 0 and the length of the supplied array:
+    var n = Math.floor(Math.random() * images.length),
+        // works out whether to use the 'textContent' or 'innerText' property:
+        textProperty = 'textContent' in document ? 'textContent' : 'innerText';
+
+    // sets the background-image of the 'body' element:
+    document.body.style.backgroundImage = 'url(' + images[n].src + ')';
+
+    // sets the text of the relevant subtitle element:
+    document.getElementById('subtitleElementID')[textProperty] = images[n].subtitle;
+}
+
+setBackground(images);
+</script>
       <!-- Gridster -->
   <div class="gridster">
     <ul>
@@ -160,7 +195,7 @@
             <ul>
 
 
-            <!--<?php 
+            <script type="text/php">
               require("includes/connect.php");
               $query = mysql_query("SELECT * FROM tasks ORDER BY date ASC, time ASC");
               $numrows = mysql_num_rows($query);
@@ -174,7 +209,7 @@
                       </li>';
                 }
               }
-            ?> -->
+            </script>
               
             </ul>
           </div>
@@ -183,7 +218,28 @@
           </form>
         </div><!-- #wrap -->
       </li>
-      <li data-row="2" data-col="2" data-sizex="2" data-sizey="1">
+      <li data-row="2" data-col="3" data-sizex="1" data-sizey="1">Quote
+       </br>
+       </br>
+       <script language="JavaScript">
+        var Quotation=new Array() 
+        Quotation[0] = "Things work out best for those who make the best of how things work out. --John Wooden";
+        Quotation[1] = "If you are not willing to risk the usual you will have to settle for the ordinary. -Jim Rohn";
+        Quotation[2] = "Success is walking from failure to failure with no loss of enthusiasm. -Winston Churchill";
+        Quotation[3] = "You miss 100% of the shots you don’t take. –Wayne Gretzky";
+        Quotation[4] = "Eighty percent of success is showing up. –Woody Allen";
+        Quotation[5] = "Your time is limited, so don’t waste it living someone else’s life. –Steve Jobs";
+        Quotation[6] = "Winning isn’t everything, but wanting to win is. –Vince Lombardi";
+        Quotation[7] = "The two most important days in your life are the day you are born and the day you find out why. –Mark Twain";
+        Quotation[8] = "The mind is everything. What you think you become.  –Buddha";
+        Quotation[9] = "Life is 10% what happens to me and 90% of how I react to it. –Charles Swindoll";
+        var Q = Quotation.length;
+        var whichQuotation=Math.round(Math.random()*(Q-1));
+        function showQuotation(){document.write(Quotation[whichQuotation]);}
+        showQuotation();
+          </script>
+      </li>
+      <li data-row="2" data-col="2" data-sizex="1" data-sizey="1">
               <div id="authorize-div">
          <span>Authorize access to Google Calendar API</span>
         <!--Button for the user to click to initiate auth sequence -->
